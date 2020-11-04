@@ -140,14 +140,26 @@ namespace HotelReservationSystem
             int leastCost = FindCheapestHotelRate(checkInDate, checkOutDate);
             if (leastCost == GetLakewoodCost(checkInDate, checkOutDate))
             {
+                if (leastCost == GetBridgewoodCost(checkInDate, checkOutDate))
+                {
+                    return "Lakewood and Bridgewood";
+                }
                 return "Lakewood";
             }
             else if (leastCost == GetBridgewoodCost(checkInDate, checkOutDate))
             {
+                if (leastCost == GetRidgewoodCost(checkInDate, checkOutDate))
+                {
+                    return "Bridgewood and Ridgewood";
+                }
                 return "Bridgewood";
             }
             else
             {
+                if (leastCost == GetLakewoodCost(checkInDate, checkOutDate))
+                {
+                    return "Ridgewood and Lakewood";
+                }
                 return "Ridgewood";
             }
         }

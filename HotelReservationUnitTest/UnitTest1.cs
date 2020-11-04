@@ -6,27 +6,15 @@ namespace HotelReservationUnitTest
     [TestClass]
     public class UnitTest1
     {
-        public void Adding_Weekday_And_Weekend_RegularCustomerRates_And_Verifying()
+        [TestMethod]
+        public void Given_Date_Range_Including_Weekend_Should_Return_Cheapest_Hotel()
         {
-            Hotel lakeWood = new Hotel
-            {
-                WeekdayRateForRegularCustomer = 110,
-                WeekendRateForRegularCustomer = 90
-            };
-            Hotel bridgeWood = new Hotel
-            {
-                WeekdayRateForRegularCustomer = 150,
-                WeekendRateForRegularCustomer = 50
-            };
-            Hotel ridgeWood = new Hotel
-            {
-                WeekdayRateForRegularCustomer = 220,
-                WeekendRateForRegularCustomer = 150
-            };
-            int expectedWeekDayRateforRegularCustomer = 110;
-            int expectedWeekendRateforRegularCustomer = 90;
-            Assert.AreEqual(expectedWeekDayRateforRegularCustomer, lakeWood.WeekdayRateForRegularCustomer);
-            Assert.AreEqual(expectedWeekendRateforRegularCustomer, lakeWood.WeekendRateForRegularCustomer);
+            int expectedHotelRate = 200;
+            string expectedHotelName = "Lakewood and Bridgewood";
+            int actualHotelRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020");
+            string actualHotelName = Operation.FindCheapestHotelName("11Sep2020", "12Sep2020");
+            Assert.AreEqual(expectedHotelRate, actualHotelRate);
+            Assert.AreEqual(expectedHotelName, actualHotelName);
         }
     }
 }
