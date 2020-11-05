@@ -7,23 +7,14 @@ namespace HotelReservationUnitTest
     public class UnitTest1
     {
         [TestMethod]
-        public void Adding_Rating_To_Hotels_And_Verifying()
+        public void Given_Date_Range_Should_Return_Cheapest_BestRated_Hotel()
         {
-            int expectedRating = 5;
-            Hotel lakeWood = new Hotel
-            {
-                Rating = 3
-            };
-            Hotel bridgeWood = new Hotel
-            {
-                Rating = 4
-            };
-            Hotel ridgeWood = new Hotel
-            {
-                Rating = 5
-            };
-            int actualRating = ridgeWood.Rating;
-            Assert.AreEqual(expectedRating, actualRating);
+            string expectedHotelName = "Bridgewood";
+            int expectedRate = 200;
+            string actualHotelName = Operation.FindCheapestBestRatedHotelName("11Sep2020", "12Sep2020");
+            int actualRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020");
+            Assert.AreEqual(expectedRate, actualRate);
+            Assert.AreEqual(expectedHotelName, actualHotelName);
         }
     }
 }
