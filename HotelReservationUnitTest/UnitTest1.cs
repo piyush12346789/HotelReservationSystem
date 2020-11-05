@@ -9,8 +9,8 @@ namespace HotelReservationUnitTest
         [TestMethod]
         public void Given_Date_Range_Should_Return_Cheapest_BestRated_Hotel()
         {
-            string expectedHotelName = "Bridgewood";
-            int expectedRate = 200;
+            string expectedHotelName = "Ridgewood";
+            int expectedRate = 370;
             string actualHotelName = Operation.FindCheapestBestRatedHotelName("11Sep2020", "12Sep2020");
             int actualRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020");
             Assert.AreEqual(expectedRate, actualRate);

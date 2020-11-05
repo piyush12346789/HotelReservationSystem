@@ -7,6 +7,24 @@ namespace HotelReservationSystem
     public class Operation
     {
         private static int totalCost = 0;
+        private static Hotel lakeWood = new Hotel
+        {
+            WeekdayRateForRegularCustomer = 110,
+            WeekendRateForRegularCustomer = 90,
+            Rating = 3
+        };
+        private static Hotel bridgeWood = new Hotel
+        {
+            WeekdayRateForRegularCustomer = 150,
+            WeekendRateForRegularCustomer = 50,
+            Rating = 4
+        };
+        private static Hotel ridgeWood = new Hotel
+        {
+            WeekdayRateForRegularCustomer = 220,
+            WeekendRateForRegularCustomer = 150,
+            Rating = 5
+        };
         public static int GetMonthInDigits(string month)
         {
             switch (month.ToLower())
