@@ -8,37 +8,15 @@ namespace HotelReservationUnitTest
     {
         public void Adding_Weekday_And_Weekend_RewardCustomerRates_And_Verifying()
         {
-            Hotel lakeWood = new Hotel
-            {
-                WeekdayRateForRegularCustomer = 110,
-                WeekendRateForRegularCustomer = 90,
-                WeekdayRateForRewardCustomer = 80,
-                WeekendRateForRewardCustomer = 80,
-                Rating = 3
-            };
-            Hotel bridgeWood = new Hotel
-            {
-                WeekdayRateForRegularCustomer = 150,
-                WeekendRateForRegularCustomer = 50,
-                WeekdayRateForRewardCustomer = 110,
-                WeekendRateForRewardCustomer = 50,
-                Rating = 4
-            };
-            Hotel ridgeWood = new Hotel
-            {
-                WeekdayRateForRegularCustomer = 220,
-                WeekendRateForRegularCustomer = 150,
-                WeekdayRateForRewardCustomer = 100,
-                WeekendRateForRewardCustomer = 40,
-                Rating = 5
-            };
-            //checking for lakewood
-            int expectedWeekdayRate = 80;
-            int expectedWeekendRate = 80;
-            int actualWeekdayRate = lakeWood.WeekdayRateForRewardCustomer;
-            int actualWeekendRate = lakeWood.WeekendRateForRewardCustomer;
-            Assert.AreEqual(expectedWeekendRate, actualWeekendRate);
-            Assert.AreEqual(expectedWeekdayRate, actualWeekdayRate);
+            string expectedHotelName = "Ridgewood";
+            int expectedRate = 140;
+            int expectedRating = 5;
+            string actualHotelName = Operation.FindCheapestBestRatedHotelName("11Sep2020", "12Sep2020", "Reward");
+            int actualRate = Operation.FindCheapestHotelRate("11Sep2020", "12Sep2020", "Reward");
+            int actualRating = Operation.GetRatingOfHotel(actualHotelName);
+            Assert.AreEqual(expectedHotelName, actualHotelName);
+            Assert.AreEqual(expectedRate, actualRate);
+            Assert.AreEqual(expectedRating, actualRating);
         }
     }
 }
